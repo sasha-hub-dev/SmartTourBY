@@ -1,0 +1,23 @@
+# Java
+*.class
+target/
+*.jar
+*.war
+*.ear
+
+# Maven
+.mvn/
+.m2/
+
+# IDE
+.idea/
+*.iml
+*.iws
+.vscode/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Docker
+.data/
