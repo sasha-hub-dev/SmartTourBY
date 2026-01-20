@@ -1,14 +1,23 @@
 package by.smarttour.auth.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import by.smarttour.auth.dto.RegisterRequest;
+import by.smarttour.auth.service.AuthService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/auth")
+@RequiredArgsConstructor
 public class AuthController {
-    @GetMapping("/status")
-    public String status() {
-        return "Auth Service is up and running!";
+
+    private final AuthService authService;
+
+    @PostMapping("/register")
+    public String register(@RequestBody RegisterRequest request) {
+        return authService.register(
+                request.getEmail(),
+                request.getPassword(),
+                request.getRole().name()
+        );
     }
 }
