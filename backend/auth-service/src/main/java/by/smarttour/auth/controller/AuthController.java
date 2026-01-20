@@ -1,5 +1,7 @@
 package by.smarttour.auth.controller;
 
+import by.smarttour.auth.dto.AuthenticationRequest;
+import by.smarttour.auth.dto.AuthenticationResponse;
 import by.smarttour.auth.dto.RegisterRequest;
 import by.smarttour.auth.service.AuthService;
 import lombok.RequiredArgsConstructor;
@@ -19,5 +21,9 @@ public class AuthController {
                 request.getPassword(),
                 request.getRole().name()
         );
+    }
+    @PostMapping("/signin")
+    public AuthenticationResponse login(@RequestBody AuthenticationRequest request) {
+        return authService.authenticate(request);
     }
 }
