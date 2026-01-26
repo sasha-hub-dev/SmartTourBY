@@ -1,0 +1,5 @@
+by\smarttour\gateway\config\AuthenticationFilter$Config.class
+by\smarttour\gateway\config\AuthenticationFilter.class
+by\smarttour\gateway\util\JwtUtil.class
+by\smarttour\gateway\ApiGatewayApplication.class
+by\smarttour\gateway\config\RouteValidator.class

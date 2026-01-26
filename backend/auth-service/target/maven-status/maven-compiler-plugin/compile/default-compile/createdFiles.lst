@@ -1,0 +1,14 @@
+by\smarttour\auth\config\SecurityConfiguration.class
+by\smarttour\auth\config\JwtService.class
+by\smarttour\auth\dto\AuthenticationResponse.class
+by\smarttour\auth\service\AuthService.class
+by\smarttour\auth\AuthServiceApplication.class
+by\smarttour\auth\repository\UserRepository.class
+by\smarttour\auth\dto\AuthenticationRequest.class
+by\smarttour\auth\config\ApplicationConfig.class
+by\smarttour\auth\entity\Role.class
+by\smarttour\auth\dto\AuthenticationResponse$AuthenticationResponseBuilder.class
+by\smarttour\auth\dto\RegisterRequest.class
+by\smarttour\auth\entity\User.class
+by\smarttour\auth\controller\AuthController.class
+by\smarttour\auth\entity\User$UserBuilder.class

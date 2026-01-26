@@ -1,0 +1,12 @@
+C:\SmartTourBY\backend\auth-service\src\main\java\by\smarttour\auth\AuthServiceApplication.java
+C:\SmartTourBY\backend\auth-service\src\main\java\by\smarttour\auth\config\ApplicationConfig.java
+C:\SmartTourBY\backend\auth-service\src\main\java\by\smarttour\auth\config\JwtService.java
+C:\SmartTourBY\backend\auth-service\src\main\java\by\smarttour\auth\config\SecurityConfiguration.java
+C:\SmartTourBY\backend\auth-service\src\main\java\by\smarttour\auth\controller\AuthController.java
+C:\SmartTourBY\backend\auth-service\src\main\java\by\smarttour\auth\dto\AuthenticationRequest.java
+C:\SmartTourBY\backend\auth-service\src\main\java\by\smarttour\auth\dto\AuthenticationResponse.java
+C:\SmartTourBY\backend\auth-service\src\main\java\by\smarttour\auth\dto\RegisterRequest.java
+C:\SmartTourBY\backend\auth-service\src\main\java\by\smarttour\auth\entity\Role.java
+C:\SmartTourBY\backend\auth-service\src\main\java\by\smarttour\auth\entity\User.java
+C:\SmartTourBY\backend\auth-service\src\main\java\by\smarttour\auth\repository\UserRepository.java
+C:\SmartTourBY\backend\auth-service\src\main\java\by\smarttour\auth\service\AuthService.java

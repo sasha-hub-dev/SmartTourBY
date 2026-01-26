@@ -1,0 +1,21 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: auth-service
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/v1/auth/**
+          filters:
+            - AuthenticationFilter
+        - id: tour-service
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/v1/tours/**
+          filters:
+            - AuthenticationFilter
