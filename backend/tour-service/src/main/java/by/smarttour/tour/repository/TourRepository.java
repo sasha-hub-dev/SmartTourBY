@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface TourRepository extends JpaRepository<Tour, Long> {
     List<Tour> findByLocationContainingIgnoreCase(String location);
+    List<Tour> findByPriceLessThanEqual(Double maxPrice);
+    List<Tour> findByLocationContainingIgnoreCaseAndPriceLessThanEqual(String location, Double maxPrice);
 }
 
 
