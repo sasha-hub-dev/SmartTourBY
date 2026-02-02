@@ -32,7 +32,7 @@ public class BookingController {
 
     @GetMapping("/my")
     public List<Booking> getMyBookings(@RequestHeader("X-User-Email") String email) {
-        // Это нам пригодится чуть позже, чтобы юзер видел свои заказы
-        return bookingRepository.findAll();
+        System.out.println(">>> Запрос истории заказов для: " + email);
+        return bookingRepository.findByUserEmail(email);
     }
 }
