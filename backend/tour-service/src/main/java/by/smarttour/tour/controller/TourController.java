@@ -23,20 +23,15 @@ public class TourController {
             @RequestParam(required = false) Double maxPrice // Новый параметр
     ) {
         System.out.println(">>> Поиск: " + location + ", цена до: " + maxPrice);
-
-        // 1. Если есть и то, и другое
         if (location != null && maxPrice != null) {
             return tourRepository.findByLocationContainingIgnoreCaseAndPriceLessThanEqual(location, maxPrice);
         }
-        // 2. Если только локация
         if (location != null) {
             return tourRepository.findByLocationContainingIgnoreCase(location);
         }
-        // 3. Если только цена
         if (maxPrice != null) {
             return tourRepository.findByPriceLessThanEqual(maxPrice);
         }
-
         return tourRepository.findAll();
     }
 }

@@ -19,3 +19,9 @@ spring:
             - Path=/api/v1/tours/**
           filters:
             - AuthenticationFilter
+        - id: booking-service
+          uri: http://localhost:8086
+          predicates:
+            - Path=/api/v1/bookings/**
+          filters:
+            - AuthenticationFilter

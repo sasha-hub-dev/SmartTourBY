@@ -10,6 +10,7 @@
         <module name="api-gateway" />
         <module name="auth-service" />
         <module name="tour-service" />
+        <module name="booking-service" />
       </profile>
     </annotationProcessing>
   </component>

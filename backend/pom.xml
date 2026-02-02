@@ -40,5 +40,6 @@
         <module>auth-service</module>
         <module>api-gateway</module>
         <module>tour-service</module>
+        <module>booking-service</module>
     </modules>
 </project>
