@@ -27,3 +27,41 @@ services:
       - "8080:8080"
     depends_on:
       - postgres
+
+  # Сервис туров (выходим из infrastructure и идем в backend)
+  tour-service:
+    build: ../backend/tour-service
+    container_name: tour-service
+    ports:
+      - "8082:8082"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/smarttour_db
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=password
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  # Сервис бронирования
+  booking-service:
+    build: ../backend/booking-service
+    container_name: booking-service
+    ports:
+      - "8086:8086"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+  # Фронтенд (выходим из infrastructure и идем в frontend)
+  frontend:
+    image: nginx:alpine
+    container_name: smarttour-frontend
+    volumes:
+      - ../frontend:/usr/share/nginx/html
+    ports:
+      - "80:80"
+    depends_on:
+      - tour-service
+      - booking-service

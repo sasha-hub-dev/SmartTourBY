@@ -1,0 +1,7 @@
+C:\SmartTourBY\backend\booking-service\src\main\java\by\smarttour\booking\BookingServiceApplication.java
+C:\SmartTourBY\backend\booking-service\src\main\java\by\smarttour\booking\client\TourClient.java
+C:\SmartTourBY\backend\booking-service\src\main\java\by\smarttour\booking\config\FeignConfig.java
+C:\SmartTourBY\backend\booking-service\src\main\java\by\smarttour\booking\config\SecurityConfig.java
+C:\SmartTourBY\backend\booking-service\src\main\java\by\smarttour\booking\controller\BookingController.java
+C:\SmartTourBY\backend\booking-service\src\main\java\by\smarttour\booking\model\Booking.java
+C:\SmartTourBY\backend\booking-service\src\main\java\by\smarttour\booking\repository\BookingRepository.java
