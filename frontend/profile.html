@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мой Профиль | Дороги Памяти</title>
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .profile-grid { display: grid; grid-template-columns: 300px 1fr; gap: 40px; padding-top: 100px; }
+        .user-info { background: var(--glass); padding: 20px; border-radius: 12px; height: fit-content; }
+        .booking-list { display: flex; flex-direction: column; gap: 15px; }
+        .booking-item {
+            background: rgba(255,255,255,0.03);
+            padding: 20px;
+            border-left: 4px solid var(--accent); /* Красная полоска для стиля */
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+<div class="container profile-grid">
+    <aside class="user-info">
+        <h2 id="user-display-email">Загрузка...</h2>
+        <p>Статус: Исследователь истории</p>
+        <button class="btn-outline" onclick="logout()">Выйти</button>
+    </aside>
+
+    <section class="my-bookings">
+        <h1>Мои бронирования</h1>
+        <div id="bookings-container" class="booking-list">
+        </div>
+    </section>
+</div>
+
+<script src="js/profile.js"></script>
+</body>
+</html>

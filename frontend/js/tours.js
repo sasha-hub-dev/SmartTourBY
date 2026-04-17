@@ -36,29 +36,27 @@ function renderTours(tours) {
 }
 
 async function bookTour(tourId) {
-    // Берем email из localStorage, который сохранили при входе
-    const userEmail = localStorage.getItem('userEmail') || 'guest@mail.com';
+    const token = localStorage.getItem('token');
 
-    try {
-        const response = await fetch(BOOKING_API, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-User-Email': userEmail // Твой бэкенд ждет этот заголовок
-            },
-            body: JSON.stringify(tourId)
-        });
-
-        if (response.ok) {
-            alert("Успешно! Код 200. Место забронировано.");
-            fetchTours(); // Обновляем список, чтобы увидеть уменьшение мест
-        } else {
-            const err = await response.text();
-            alert("Ошибка: " + err);
-        }
-    } catch (err) {
-        alert("Нет связи с Booking-Service (8086)");
+    if (!token) {
+        alert("Братишка, сначала нужно войти в аккаунт!");
+        window.location.href = 'auth.html';
+        return;
     }
+
+    const userEmail = localStorage.getItem('userEmail');
+
+    const response = await fetch("http://localhost:8086/api/v1/bookings", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+            'X-User-Email': userEmail
+        },
+        body: JSON.stringify(tourId)
+    });
+
+    // ... остальная логика (alert и обновление списка)
 }
 
 fetchTours();
