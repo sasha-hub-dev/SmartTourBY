@@ -15,4 +15,6 @@ public class Tour {
     private String description;
     private String location;
     private Double price;
+    @Column(nullable = false)
+    private Integer availableSlots = 10;
 }

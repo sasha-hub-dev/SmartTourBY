@@ -25,3 +25,9 @@ spring:
             - Path=/api/v1/bookings/**
           filters:
             - AuthenticationFilter
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: alpha

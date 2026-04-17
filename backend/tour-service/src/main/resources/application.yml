@@ -1,12 +1,20 @@
 server:
   port: 8082
 
+jwt:
+  secret: 7x!A%D*G-KaPdSgVkYp3s6v9y$B&E(H+MbQeThWmZq4t7w!z%C*F-J@NcRfUjXn2r
+
 spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
   datasource:
     url: jdbc:postgresql://localhost:5432/smarttour_db
     username: admin
     password: password
-  jpa:
-    hibernate:
-      ddl-auto: update # Автоматически создаст таблицу
-    show-sql: true
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: alpha
