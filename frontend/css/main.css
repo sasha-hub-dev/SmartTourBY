@@ -1,0 +1,27 @@
+:root {
+    --primary: #1a1a1a;
+    --accent: #e74c3c;    /* Тот самый красный для "окр" и кнопок */
+    --bg-dark: #0f0f0f;
+    --text-white: #f5f5f5;
+    --glass: rgba(255, 255, 255, 0.05);
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
