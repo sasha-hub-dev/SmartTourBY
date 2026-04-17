@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Панель администратора | Дороги Памяти</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="container admin-container">
+    <header class="admin-header">
+        <h1>Управление маршрутами</h1>
+        <a href="index.html" class="btn-outline">На главную</a>
+    </header>
+
+    <section class="admin-section">
+        <h2>Добавить новый тур</h2>
+        <form id="add-tour-form" class="admin-form">
+            <input type="text" id="title" placeholder="Название маршрута" required>
+            <textarea id="description" placeholder="Описание и историческая справка" required></textarea>
+            <div class="form-row">
+                <input type="number" id="price" placeholder="Цена (BYN)" required>
+                <input type="number" id="slots" placeholder="Кол-во мест" required>
+            </div>
+            <input type="text" id="imageUrl" placeholder="Ссылка на фото памятника">
+            <button type="submit" class="btn-primary">Опубликовать маршрут</button>
+        </form>
+    </section>
+
+    <section class="admin-section">
+        <h2>Список туров в базе</h2>
+        <div class="table-wrapper">
+            <table id="admin-tours-table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Название</th>
+                    <th>Места</th>
+                    <th>Цена</th>
+                    <th>Действия</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>

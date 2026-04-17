@@ -1,0 +1,27 @@
+.admin-container { padding-top: 50px; }
+.admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+
+.admin-section {
+    background: var(--glass);
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.admin-form { display: flex; flex-direction: column; gap: 15px; }
+.admin-form input, .admin-form textarea {
+    padding: 12px;
+    background: rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    color: white;
+}
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+th { text-align: left; padding: 15px; border-bottom: 2px solid var(--accent); color: var(--accent); }
+td { padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+.btn-delete { color: var(--accent); cursor: pointer; background: none; border: none; font-weight: bold; }
