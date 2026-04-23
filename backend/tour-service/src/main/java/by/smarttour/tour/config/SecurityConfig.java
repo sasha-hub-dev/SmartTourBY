@@ -1,5 +1,6 @@
 package by.smarttour.tour.config;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -8,10 +9,14 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig {
+
+    private final JwtAuthenticationFilter jwtFilter;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -19,20 +24,12 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        // 1. РАЗРЕШАЕМ доступ к Swagger и документации (БЕЗ ЭТОГО НЕ ОТКРОЕТСЯ)
-                        .requestMatchers(
-                                "/v3/api-docs/**",
-                                "/swagger-ui/**",
-                                "/swagger-ui.html"
-                        ).permitAll()
+                        .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/v1/tours/**").permitAll() // Просмотр туров доступен всем
+                        .anyRequest().authenticated() // Остальное (бронь, создание) - только с токеном!
+                )
+                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
-                        // 2. РАЗРЕШАЕМ всем GET запросы к турам (и списание мест для теста, если надо)
-                        .requestMatchers(HttpMethod.GET, "/api/v1/tours/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/api/v1/tours/*/book").permitAll()
-
-                        // 3. Остальное — только с авторизацией
-                        .anyRequest().authenticated()
-                );
         return http.build();
     }
 }
