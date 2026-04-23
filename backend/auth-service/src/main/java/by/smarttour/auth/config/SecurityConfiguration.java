@@ -18,15 +18,20 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(AbstractHttpConfigurer::disable)
+                .csrf(csrf -> csrf.disable())
+                .cors(cors -> cors.configurationSource(request -> {
+                    var corsConfiguration = new org.springframework.web.cors.CorsConfiguration();
+                    corsConfiguration.setAllowedOriginPatterns(java.util.List.of("*"));
+                    corsConfiguration.setAllowedMethods(java.util.List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+                    corsConfiguration.setAllowedHeaders(java.util.List.of("*"));
+                    corsConfiguration.setAllowCredentials(true);
+                    return corsConfiguration;
+                }))
                 .authorizeHttpRequests(auth -> auth
-                        // Пробуем максимально широкий доступ для теста
-                        .requestMatchers("/api/v1/auth/**", "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
+                        .requestMatchers("/api/v1/auth/**").permitAll()
                         .anyRequest().authenticated()
                 )
-                .sessionManagement(session -> session
-                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                );
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
         return http.build();
     }

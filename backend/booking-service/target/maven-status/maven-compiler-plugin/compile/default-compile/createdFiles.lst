@@ -1,0 +1,7 @@
+by\smarttour\booking\config\FeignConfig.class
+by\smarttour\booking\model\Booking.class
+by\smarttour\booking\BookingServiceApplication.class
+by\smarttour\booking\client\TourClient.class
+by\smarttour\booking\config\SecurityConfig.class
+by\smarttour\booking\controller\BookingController.class
+by\smarttour\booking\repository\BookingRepository.class

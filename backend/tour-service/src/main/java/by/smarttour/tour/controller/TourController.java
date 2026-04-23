@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/tours")
+@CrossOrigin(origins = "*")
 public class TourController {
 
     private final TourRepository tourRepository;
@@ -44,6 +45,15 @@ public class TourController {
         return tourRepository.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
+    }
+    @PostMapping
+    public ResponseEntity<Tour> createTour(@RequestBody Tour tour) {
+        // Устанавливаем дефолтное количество мест, если оно не пришло
+        if (tour.getAvailableSlots() == null) {
+            tour.setAvailableSlots(10);
+        }
+        Tour savedTour = tourRepository.save(tour);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedTour);
     }
     @Transactional
     public void bookTourPlace(Long tourId) {

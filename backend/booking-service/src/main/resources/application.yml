@@ -1,11 +1,9 @@
 server:
   port: 8086
 
-
-
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/smarttour_db
+    url: jdbc:postgresql://postgres:5432/smarttour_db
     username: admin
     password: password
   jpa:
@@ -16,11 +14,14 @@ spring:
     openfeign:
       okhttp:
         enabled: true
+
 logging:
   level:
     by.smarttour.booking.client.TourClient: DEBUG
+
 jwt:
   secret: 7x!A%D*G-KaPdSgVkYp3s6v9y$B&E(H+MbQeThWmZq4t7w!z%C*F-J@NcRfUjXn2r
+
 springdoc:
   api-docs:
     path: /v3/api-docs

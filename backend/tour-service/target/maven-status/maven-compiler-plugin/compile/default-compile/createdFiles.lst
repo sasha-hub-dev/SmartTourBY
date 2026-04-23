@@ -1,2 +1,5 @@
+by\smarttour\tour\config\SecurityConfig.class
 by\smarttour\tour\TourServiceApplication.class
 by\smarttour\tour\controller\TourController.class
+by\smarttour\tour\repository\TourRepository.class
+by\smarttour\tour\model\Tour.class
